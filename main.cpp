@@ -9,10 +9,13 @@
 // Do not compile with SINGLE & MULTI defined
 #define MULTI
 
-// The amount of threads that will be created
-constexpr unsigned long long thread_count = 4;
+// Initial string to permute
+const std::string key = "0123456789AB";
 // The final solution for the test case
 const std::string solution = "A0124B395876";
+// The amount of threads that will be created
+constexpr unsigned long long thread_count = 4;
+
 // Global thread variables
 std::condition_variable condition;
 std::mutex m;
@@ -52,9 +55,6 @@ void thread_begin(unsigned long long start, unsigned long long end, std::string 
 int main()
 {
 	auto start = std::chrono::high_resolution_clock::now();
-	
-	// Initial string to permute
-	const std::string key = "0123456789AB";
 
 #ifdef SINGLE
 
